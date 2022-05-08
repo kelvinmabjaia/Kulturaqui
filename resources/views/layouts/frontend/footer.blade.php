@@ -80,36 +80,6 @@
  <script src="{{ asset('assets/frontend/js/slick-animation.min.js') }}"></script>
  <!-- Custom JS-->
  <script src="{{ asset('assets/frontend/js/custom.js') }}"></script>
-
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="assets/dashboard/js/jquery.min.js"></script>
-    <script src="assets/dashboard/js/popper.min.js"></script>
-    <script src="assets/dashboard/js/bootstrap.min.js"></script>
-    <!-- Appear JavaScript -->
-    <script src="assets/dashboard/js/jquery.appear.js"></script>
-    <!-- Countdown JavaScript -->
-    <script src="assets/dashboard/js/countdown.min.js"></script>
-    <!-- Counterup JavaScript -->
-    <script src="assets/dashboard/js/waypoints.min.js"></script>
-    <script src="assets/dashboard/js/jquery.counterup.min.js"></script>
-    <!-- Wow JavaScript -->
-    <script src="assets/dashboard/js/wow.min.js"></script>
-    <!-- Slick JavaScript -->
-    <script src="assets/dashboard/js/slick.min.js"></script>
-    <!-- Owl Carousel JavaScript -->
-    <script src="assets/dashboard/js/owl.carousel.min.js"></script>
-    <!-- Magnific Popup JavaScript -->
-    <script src="assets/dashboard/js/jquery.magnific-popup.min.js"></script>
-    <!-- Smooth Scrollbar JavaScript -->
-    <script src="assets/dashboard/js/smooth-scrollbar.js"></script>
-    <!-- Chart Custom JavaScript -->
-    <script src="assets/dashboard/js/chart-custom.js"></script>
-    <!-- Custom JavaScript -->
-    <script src="assets/dashboard/js/custom.js"></script>
-    <script src="assets/dashboard/js/rtl.js"></script>
-    
-
 </body>
 
 </html>

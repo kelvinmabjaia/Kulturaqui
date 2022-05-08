@@ -31,13 +31,15 @@ class User extends Authenticatable
         'role'
     ];
 
+    public function roles(){ return $this->belongsTo(Role::class, 'role'); }
+
     public function assinatura(){ return $this->hasMany(Assinatura::class, 'id', 'user_id'); }
 
     public function pagamento(){ return $this->hasMany(Pagamento::class, 'id', 'user_id'); }
 
     public function pais(){ return $this->belongsTo(Pais::class, 'kultpais_id'); }
 
-    public function estado(){ return $this->belongsTo(Estado::class. 'kultestad_id'); }
+    public function estado(){ return $this->belongsTo(Estado::class, 'kultestad_id'); }
 
     protected $hidden = [
         'password',

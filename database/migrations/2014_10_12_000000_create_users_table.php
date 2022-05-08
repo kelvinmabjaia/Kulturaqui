@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('password');
             $table->unsignedBigInteger('role'); 
             $table->unsignedBigInteger('kultpais_id'); 
-            $table->unsignedBigInteger('kultpayme_id'); 
+            $table->unsignedBigInteger('kultpayme_id')->nullable();
             $table->unsignedBigInteger('kultestad_id'); 
             $table->string('profile_photo_path', 2048)->nullable();
             $table->rememberToken();

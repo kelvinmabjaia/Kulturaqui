@@ -39,7 +39,7 @@
                            <span class="navbar-menu-icon navbar-menu-icon--bottom"></span>
                         </div>
                      </a>
-                     <a class="navbar-brand" href="index.html"> <img class="img-fluid logo" src="{{ asset('assets/logo.png') }}"/> </a>
+                     <a class="navbar-brand" href="#"> <img class="img-fluid logo" src="{{ asset('assets/logo.png') }}"/> </a>
                      
                      <div class="collapse navbar-collapse  d-flex flex-row-reverse" id="navbarSupportedContent">
                      <div class="navbar-right menu-right">
@@ -54,54 +54,64 @@
                                     <div class="iq-sub-dropdown iq-user-dropdown">
                                         <div class="iq-card shadow-none m-0">
                                             <div class="iq-card-body p-0 pl-3 pr-3">
-                                                <a href="manage-profile.html" class="iq-sub-card setting-dropdown">
-                                                <div class="media align-items-center">
-                                                    <div class="right-icon">
-                                                        <i class="ri-file-user-line text-primary"></i>
-                                                    </div>
-                                                    <div class="media-body ml-3">
-                                                        <h6 class="mb-0 ">Manage Profile</h6>
-                                                    </div>
-                                                </div>
-                                                </a>
-                                                <a href="setting.html" class="iq-sub-card setting-dropdown">
-                                                <div class="media align-items-center">
-                                                    <div class="right-icon">
-                                                        <i class="ri-settings-4-line text-primary"></i>
-                                                    </div>
-                                                    <div class="media-body ml-3">
-                                                        <h6 class="mb-0 ">Settings</h6>
-                                                    </div>
-                                                </div>
-                                                </a>
-                                                <a href="pricing-plan-1.html" class="iq-sub-card setting-dropdown">
-                                                <div class="media align-items-center">
-                                                    <div class="right-icon">
-                                                        <i class="ri-settings-4-line text-primary"></i>
-                                                    </div>
-                                                    <div class="media-body ml-3">
-                                                        <h6 class="mb-0 ">Pricing Plan</h6>
-                                                    </div>
-                                                </div>
-                                                </a>
+
+                                                @if (Auth::user()->role != 1)
+                                                    <a href="/dashboard" class="iq-sub-card setting-dropdown">
+                                                        <div class="media align-items-center">
+                                                            <div class="right-icon">
+                                                                <i class="ri-edit-box-line text-primary"></i>
+                                                            </div>
+                                                            <div class="media-body ml-3">
+                                                                <h6 class="mb-0 ">Dashboard</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                @endif
+
+                                                @if (Auth::user()->role == 1)
+
+                                                    <a href="setting.html" class="iq-sub-card setting-dropdown">
+                                                        <div class="media align-items-center">
+                                                            <div class="right-icon">
+                                                                <i class="ri-settings-4-line text-primary"></i>
+                                                            </div>
+                                                            <div class="media-body ml-3">
+                                                                <h6 class="mb-0 ">Conta</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                    <a href="pricing-plan-1.html" class="iq-sub-card setting-dropdown">
+                                                        <div class="media align-items-center">
+                                                            <div class="right-icon">
+                                                                <i class="ri-settings-4-line text-primary"></i>
+                                                            </div> 
+                                                            <div class="media-body ml-3">
+                                                                <h6 class="mb-0 ">Plano</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                @endif
+                                                
                                                 <a class="iq-sub-card setting-dropdown">
-                                                <div class="media align-items-center">
-                                                    <div class="right-icon">
-                                                        <i class="ri-logout-circle-line text-primary"></i>
-                                                    </div>
-                                                    <div class="media-body ml-3">
-                                                        
-                                                        <form method="POST" action="{{ route('logout') }}">
-                                                            @csrf
-    
-                                                            <button type="submit" style="background: none; border: none;">
-                                                                <h6 class="mb-0">Logout</h6>
-                                                            </button>
-                                                        </form>
+                                                    <div class="media align-items-center">
+                                                        <div class="right-icon">
+                                                            <i class="ri-logout-circle-line text-primary"></i>
+                                                        </div>
+                                                        <div class="media-body ml-3">
+                                                            
+                                                            <form method="POST" action="{{ route('logout') }}">
+                                                                @csrf
+        
+                                                                <button type="submit" style="background: none; border: none;">
+                                                                    <h6 class="mb-0">Logout</h6>
+                                                                </button>
+                                                            </form>
+
+                                                        </div>
 
                                                     </div>
-
-                                                </div>
                                                 </a>
                                             </div>
                                         </div>

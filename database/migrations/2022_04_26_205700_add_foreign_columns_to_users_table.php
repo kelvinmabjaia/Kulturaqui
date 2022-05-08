@@ -14,7 +14,8 @@ return new class extends Migration
                                                                     ->onDelete('cascade');
             $table->foreign('kultpais_id')->references('id')->on('kultpais')->onUpdate('cascade')
                                                                     ->onDelete('cascade');
-            $table->foreign('kultpayme_id')->references('id')->on('kultpayme')->onUpdate('cascade')
+            $table->foreign('kultpayme_id')->nullable() ->references('id')->on('kultpayme')->onUpdate('cascade')
+                                         
                                                                     ->onDelete('cascade');
             $table->foreign('kultestad_id')->references('id')->on('kultestad')->onUpdate('cascade')
                                                                     ->onDelete('cascade');

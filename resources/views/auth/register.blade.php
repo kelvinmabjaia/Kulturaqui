@@ -33,7 +33,7 @@
                         </div>
                      </div>
                      <div class="iq-card-body">
-                        <form method="POST" action="{{ route('user.create') }}" id="form-wizard1" class="text-center mt-4">
+                        <form method="POST" action="{{ route('user.register') }}" id="form-wizard1" class="text-center mt-4">
 
                            @csrf
 

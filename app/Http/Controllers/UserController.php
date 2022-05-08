@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 use Carbon\Carbon;
 
 use App\Models\User;
+use App\Models\Role;
 use App\Models\Assinatura;
 use App\Models\Pagamento;
 
@@ -17,22 +19,53 @@ class UserController extends Controller
 
     public function index()
     {
-        //
+        return view('dashboard.user.index');
     }
 
     public function login()
     {
-        
+        if(Auth::user()->role == 1  ){
+            return view('kult.index');
+        } else if(Auth::user()->role == 2){
+            return dd('Anunciante');
+        } else if(Auth::user()->role == 3){
+            return dd('Colaborador');
+        } else if(Auth::user()->role == 4){
+            return view('dashboard.index');
+        }
     }
 
     public function create()
     {
-        //
+        return view('dashboard.user.create');
     }
 
     public function store(Request $request)
+    {
+        $user = new User();
+        $user->fill([
+            'role' => $request->nivel, 
+            'kultestad_id' => $request->estado, 
+
+            'name' => $request->nome,
+            'gender' => $request->genero,
+            'birthday' => $request->dataNascimento,
+            'phone' => $request->phno,
+            'kultpais_id' => $request->pais,
+
+            'email' => $request->email,
+            'password' => Hash::make($request->psw),
+        ]);
+        $user->save();
+
+        $role = Role::where('id', $request->nivel)->first();
+
+        return redirect( route('user.index') )->with('user.create', "Utilizador criado: " . $request->nome . " | ". $role->designac);
+    }
+
+    public function register(Request $request)
     { 
-        return redirect( route('login') )->with('user.success', $request->name);
+        //return redirect( route('login') )->with('user.success', $request->name);
 
         $metodo = '';
         if( $request->payMethod == 'M' ){ $metodo = 'Mpesa'; }
@@ -82,14 +115,19 @@ class UserController extends Controller
         //
     }
 
-    public function edit($id)
+    public function editStatus(User $user)
     {
-        //
+        $user = User::with('roles', 'estado')->where('id', $user->id)->first();
+        return view('dashboard.user.status')->with(compact('user'));
     }
 
-    public function update(Request $request, $id)
+    public function updateStatus(Request $request, User $user)
     {
-        //
+        $user->update([
+            'kultestad_id' => $request->user_estado,
+        ]);
+
+        return redirect( route('user.index') )->with('user.status.update', "Estado do(a) " . $user->name . " atualizado!");
     }
 
     public function destroy($id)

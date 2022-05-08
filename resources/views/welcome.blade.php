@@ -159,7 +159,7 @@
                <div class="row about-us-row text-center align-items-center">
                   <div class="col-md-6">
                      <div class="text-center">
-                        <img width="497" height="477" src="{{ asset('assets/frontend/images/about-us/06.jpg') }} " class=" img-fluid attachment-large size-large" alt="" loading="lazy" sizes="100vw">
+                        <img width="258px" src="{{ asset('assets/frontend/images/about-us/map.png') }} " class=" img-fluid attachment-large size-large" alt="" loading="lazy" sizes="100vw">
                      </div>
                   </div>
                   <div class="col-md-6">
