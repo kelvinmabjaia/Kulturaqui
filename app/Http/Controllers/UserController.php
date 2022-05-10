@@ -24,6 +24,13 @@ class UserController extends Controller
 
     public function login()
     {
+
+        $x = App\Models\Teatro::with(['rates' => function ($query) {
+             $query->avg('nota');
+        }])->first();
+
+        return dd($x);
+
         if(Auth::user()->role == 1  ){
             return view('kult.index');
         } else if(Auth::user()->role == 2){
