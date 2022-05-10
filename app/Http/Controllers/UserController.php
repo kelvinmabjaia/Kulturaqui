@@ -24,19 +24,12 @@ class UserController extends Controller
 
     public function login()
     {
-
-        $x = App\Models\Teatro::with(['rates' => function ($query) {
-             $query->avg('nota');
-        }])->first();
-
-        return dd($x);
-
         if(Auth::user()->role == 1  ){
             return view('kult.index');
         } else if(Auth::user()->role == 2){
             return dd('Anunciante');
         } else if(Auth::user()->role == 3){
-            return dd('Colaborador');
+            return view('dashboard.index');
         } else if(Auth::user()->role == 4){
             return view('dashboard.index');
         }
@@ -50,6 +43,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = new User();
+        
         $user->fill([
             'role' => $request->nivel, 
             'kultestad_id' => $request->estado, 
@@ -101,7 +95,7 @@ class UserController extends Controller
             'kultpayme_id' => $pagamento->id,
 
             'email' => $request->email,
-            'password' => Hash::make($request->psw),
+            'password' => Hash::make($request->pwd),
         ]);
         $user->save();
 

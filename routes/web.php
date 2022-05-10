@@ -3,31 +3,31 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PaisController;
+use App\Http\Controllers\TeatroController;
 use App\Http\Controllers\UserController;
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', [UserController::class, 'login'])->name('dashboard');
-});
 
-// + Visitante 
-    Route::get('/', function () { return view('welcome'); });
-    Route::post('/user/register', [UserController::class, 'register'])->name('user.register');
+// + Visitante // Register
+Route::post('/user/register', [UserController::class, 'register'])->name('user.register');
 // - Visitante 
 
-// Dashboard
-Route::middleware(['dashboard'])
-->group(function () {
-    Route::get('/dashboard', function () { return view('dashboard.index'); }); 
-    Route::get('/view', function () { return view('kult.index'); })->name('dash.view'); 
-});
+// + Dashboard
+    Route::middleware(['dashboard'])
+    ->group(function () {
+
+        Route::get('/dashboard', function () { return view('dashboard.index'); }); 
+
+        // List
+        Route::get('/teatro', [TeatroController::class, 'index'])->name('teatro.index');
+        
+    });
+//-+ Dashboard
 
 // + Administrador 
 
-    Route::group(['middleware' => 'administrador'], function(){
+    Route::middleware(['administrador'])
+    ->group(function () {
+        
         // User
         Route::get('/users', [UserController::class, 'index'])->name('user.index');
         Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
@@ -43,9 +43,55 @@ Route::middleware(['dashboard'])
         Route::post('/pais/{pais}', [PaisController::class, 'update']);
         Route::get('/pais/{pais}/view', [PaisController::class, 'show']);
         Route::post('/pais/{pais}/destroy', [PaisController::class, 'destroy']);
+
     });
 
 // - Administrador 
+
+// + Colaborador
+
+    Route::middleware(['colaborador'])
+    ->group(function () {
+
+        //Teatro
+        Route::get('/teatro/create', [TeatroController::class, 'create'])->name('teatro.create');
+
+    });
+
+// - Colaborador
+
+
+
+// + Assinante
+
+    Route::middleware(['assinante'])
+    ->group(function () {
+
+        Route::get('/', function () { return view('kult.index'); }); 
+
+    });
+
+// - Assinante
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', [UserController::class, 'login'])->name('dashboard');
+});
 
 
 

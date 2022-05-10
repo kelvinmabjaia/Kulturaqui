@@ -12,7 +12,7 @@ class isAssinante
         if(\Auth::user() && \Auth::user()->role === 1) {
             return $next($request);
         } else {
-            abort(403, 'Unauthorized action.');
+            return response()->view('welcome');
         }
     }
 }

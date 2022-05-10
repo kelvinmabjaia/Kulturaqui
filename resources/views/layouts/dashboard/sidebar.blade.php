@@ -11,7 +11,7 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('dash.view')}}">
+        <a class="nav-link collapsed" href="/">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Visitar Kulturaqui</span>
         </a>
@@ -73,7 +73,7 @@
           @endif
 
           <li>
-            <a href="#">
+            <a href="{{ route('teatro.index') }}">
               <i class="bi bi-circle"></i><span>Listar Conteúdo</span>
             </a>
           </li>
