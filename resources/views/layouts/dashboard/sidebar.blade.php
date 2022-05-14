@@ -66,7 +66,7 @@
           
           @if (Auth::user()->role == 3)
             <li>
-              <a href="#">
+              <a href="{{ route('teatro.create') }}">
                 <i class="bi bi-circle"></i><span>Adicionar Conteúdo</span>
               </a>
             </li>

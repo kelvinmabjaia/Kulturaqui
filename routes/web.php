@@ -55,6 +55,7 @@ Route::post('/user/register', [UserController::class, 'register'])->name('user.r
 
         //Teatro
         Route::get('/teatro/create', [TeatroController::class, 'create'])->name('teatro.create');
+        Route::post('/teatro', [TeatroController::class, 'store'])->name('teatro.store');
 
     });
 

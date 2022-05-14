@@ -18,7 +18,7 @@ return new class extends Migration
             $table->longText('descrica');
             $table->boolean('idd'); // Restrição de idade
             $table->date('dataLanc');
-            $table->dateTime('durac', $precision = 0);
+            $table->string('durac');
             $table->integer('views');
             $table->unsignedBigInteger('kultestad_id');
             $table->timestamps();
