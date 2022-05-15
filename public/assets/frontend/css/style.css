@@ -1304,3 +1304,14 @@ label { color: var(--iq-secondary); margin-bottom: 0;}
 .comment-respond .form-submit {display: inline-block; margin-bottom: 0;}
 .blog-button .button-link, .comment-respond .form-submit .submit, .commentlist .iq-comments-media .reply a { background: var(--iq-primary-hover); color: var(--iq-white-color);border: none;position: relative; z-index: 9; display: inline-block; font-weight: 400;text-align: center; white-space: nowrap;vertical-align: middle; padding: 10px 10px;font-size: 14px;line-height: 1.5; text-transform: uppercase; letter-spacing: 1.5px;}
 embed, iframe, object {max-width: 100%;width: 100%;}
+
+/*  CUSTOM */
+img.thumb{
+  height: 275px;
+  width: 415px;
+  object-fit: cover;
+}
+
+.movie-detail .trending-info .trending-text {
+  font-size: 3rem !important;
+}

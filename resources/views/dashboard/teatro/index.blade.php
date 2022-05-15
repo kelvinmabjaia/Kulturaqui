@@ -46,20 +46,21 @@
               <h5 class="card-title">Lista das Peças Teatrais</h5>
              
               <!-- Table with stripped rows -->
-              <table class="table datatable">
+              <table class="table datatable table-img">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Capa</th>
                     <th scope="col">Título</th>
                     <th scope="col">Categoria</th>
+                    <th scope="col">Data de Lançamento</th>
+                    <th scope="col">Duração</th>
                     <th scope="col">Restrição</th>
-                    <th scope="col">IMG</th>
                   </tr>
                 </thead>
                 <tbody>
 
-                    @foreach (App\Models\Teatro::all() as $teatro)
+                    @foreach (App\Models\Teatro::orderBy('created_at', 'desc')->get() as $teatro)
                         <tr>
                             <th scope="row">
 
@@ -79,10 +80,13 @@
                                     </ul> 
                                 </div>
                             </th>
-                            <td> <img src="{{ asset('uploads/teatro/'.$teatro->imgThumb) }}" height="72px"/> </td>
+                            <td> 
+                              <img src="{{ asset('uploads/teatro/'.$teatro->imgThumb) }}" style="object-fit: cover;" width="60px" height="60px"/>
+                            </td>
                             <td> {{ $teatro->titulo }} </td>
                             <td> {{ $teatro->categoria->designac }} </td>
-                            <td> {{ $teatro->restricao->designac }} </td>
+                            <td> {{ $teatro->dataLanc }} </td>
+                            <td> {{ $teatro->durac }} </td>
                             <td> {{ $teatro->restricao->designac }} </td>
                             
                         </tr>

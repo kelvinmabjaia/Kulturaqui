@@ -70,6 +70,8 @@ Route::post('/user/register', [UserController::class, 'register'])->name('user.r
 
         Route::get('/', function () { return view('kult.index'); }); 
 
+        Route::get('/watch/{teatro}', [TeatroController::class, 'watch']);
+
     });
 
 // - Assinante

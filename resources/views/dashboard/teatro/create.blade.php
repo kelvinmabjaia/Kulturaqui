@@ -68,7 +68,14 @@
                             {{-- Duração da Peça --}}
                             <div class="col-4">
                                 <label class="form-label">Duração da Peça</label>
-                                <input type="text" class="form-control" name="durac">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <input type="number" min="0" max="24" placeholder="Horas" class="form-control" name="duracH">
+                                    </div>
+                                    <div class="col-5 pl-0">
+                                        <input type="number" min="0" max="59" placeholder="Minutos" class="form-control" name="duracM">
+                                    </div>
+                                </div>
                             </div>
 
                             {{-- Restrição --}}

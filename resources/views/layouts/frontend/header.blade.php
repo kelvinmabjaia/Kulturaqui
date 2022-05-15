@@ -39,7 +39,7 @@
                            <span class="navbar-menu-icon navbar-menu-icon--bottom"></span>
                         </div>
                      </a>
-                     <a class="navbar-brand" href="#"> <img class="img-fluid logo" src="{{ asset('assets/logo.png') }}"/> </a>
+                     <a class="navbar-brand" href="/"> <img class="img-fluid logo" src="{{ asset('assets/logo.png') }}"/> </a>
                      
                      <div class="collapse navbar-collapse  d-flex flex-row-reverse" id="navbarSupportedContent">
                      <div class="navbar-right menu-right">

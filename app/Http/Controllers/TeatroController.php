@@ -35,6 +35,14 @@ class TeatroController extends Controller
             'kultestad_id' => 1,
         ]);
 
+        if($request->duracH || $request->duracH > 0){
+            $durac = $request->duracH.'h '.$request->duracM.'m';
+        } else {
+            $durac = $request->duracM.'m';
+        }
+
+        $teatro->durac = $durac;
+
         if($request->hasfile('thumb')){
             $file = $request->file('thumb');
             $exe = $file->getClientOriginalExtension();
@@ -46,10 +54,14 @@ class TeatroController extends Controller
 
         $teatro->save();
 
-        return redirect( route('teatro.index') )->with('teatro.create', "Teatro acionado com sucesso: " . $request->tearo);
+        return redirect( route('teatro.index') )->with('teatro.create', "Peça Teatral acionada com sucesso: " . $request->titulo);
     }
 
-    public function show($id)
+    public function watch(Teatro $teatro){
+        return view('kult.teatro.index')->with(compact('teatro'));
+    }
+
+    public function show(Teatro $teatro)
     {
         //
     }
