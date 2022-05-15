@@ -74,18 +74,6 @@ Route::post('/user/register', [UserController::class, 'register'])->name('user.r
 
 // - Assinante
 
-
-
-
-
-
-
-
-
-
-
-
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

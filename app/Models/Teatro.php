@@ -22,8 +22,17 @@ class Teatro extends Model
         'dataLanc',
         'durac',
         'views',
-        'estado_id'
+        'kultestad_id',
+        'imgThumb'
     ];
+
+    public function categoria(){
+        return $this->belongsTo(Categoria::class, 'kultcateg_id', 'id');
+    }
+
+    public function restricao(){
+        return $this->belongsTo(Restricao::class, 'idd', 'id');
+    }
 
     public function rates(){
         return $this->hasMany(Rate::class, 'kulteatro_id', 'id');

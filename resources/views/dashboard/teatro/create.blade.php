@@ -23,7 +23,7 @@
                 <h5 class="card-title">Adicionar Teatro</h5>
 
                 <!-- Form Elements -->
-                <form method="POST" action="{{route('teatro.store')}}">
+                <form method="POST" action="{{route('teatro.store')}}" enctype="multipart/form-data">
 
                   @csrf
 
@@ -44,7 +44,7 @@
                             {{-- Categoria --}}
                             <div class="col-5">
                                 <label class="form-label">Categoria</label>
-                                <select class="form-select" name="categoria" name="categ">
+                                <select class="form-select" name="categ">
                                     <option selected disabled>Escolha...</option>
     
                                     @foreach (App\Models\Categoria::all() as $categ)
@@ -71,7 +71,7 @@
                                 <input type="text" class="form-control" name="durac">
                             </div>
 
-                            {{-- Data Lançamento --}}
+                            {{-- Restrição --}}
                             <div class="col-4">
                                 <label class="form-label">Restrição de Idade</label>
                                 <select class="form-control" name="restri">

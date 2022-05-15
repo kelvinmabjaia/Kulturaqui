@@ -50,8 +50,11 @@
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Titulo</th>
-                    <th scope="col">Teatro</th>
+                    <th scope="col">Capa</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Restrição</th>
+                    <th scope="col">IMG</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -76,8 +79,12 @@
                                     </ul> 
                                 </div>
                             </th>
-                            <td> Titulo </td>
-                            <td> Teatro </td>
+                            <td> <img src="{{ asset('uploads/teatro/'.$teatro->imgThumb) }}" height="72px"/> </td>
+                            <td> {{ $teatro->titulo }} </td>
+                            <td> {{ $teatro->categoria->designac }} </td>
+                            <td> {{ $teatro->restricao->designac }} </td>
+                            <td> {{ $teatro->restricao->designac }} </td>
+                            
                         </tr>
                     @endforeach
 

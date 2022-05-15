@@ -19,7 +19,10 @@ class DatabaseSeeder extends Seeder
             EstadoSeeder::class,
             PaisSeeder::class,
             PlanoSeeder::class,
+            RateSeeder::class,
+            RestriSeeder::class,
             RoleSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
