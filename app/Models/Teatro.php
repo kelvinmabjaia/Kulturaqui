@@ -26,12 +26,17 @@ class Teatro extends Model
         'imgThumb'
     ];
 
+    
     public function categoria(){
         return $this->belongsTo(Categoria::class, 'kultcateg_id', 'id');
     }
-
+    
     public function restricao(){
         return $this->belongsTo(Restricao::class, 'idd', 'id');
+    }
+    
+    public function imagens(){
+        return $this->hasMany(Imagem::class, 'kulteatro_id', 'id');
     }
 
     public function rates(){

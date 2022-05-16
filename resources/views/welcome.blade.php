@@ -62,7 +62,7 @@
                                     <th class="text-center iq-price-head basic">
                                        <div class="iq-price-box">
                                           <h3 class="iq-price-rate text-white">300MT<small> / Mês</small></h3>
-                                          <span class="type bg-success">Básico</span>
+                                          <span class="type text-white bg-success">Básico</span>
                                        </div>
                                     </th>
 
@@ -70,7 +70,7 @@
                                     <th class="text-center iq-price-head">
                                        <div class="iq-price-box">
                                           <h3 class="iq-price-rate text-white">900MT<small> / Mês</small></h3>
-                                          <span class="type bg-primary">Familiar</span>
+                                          <span class="type text-white bg-primary">Familiar</span>
                                        </div>
                                     </th>
 

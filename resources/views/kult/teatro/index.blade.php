@@ -54,6 +54,7 @@
                   </div>
                </div>
                <div class="row">
+
                   <div class="col-1-5 col-md-6 iq-mb-30">
 
                      <div class="epi-box">
@@ -63,42 +64,19 @@
                      </div>
 
                   </div>
-                 <div class="col-1-5 col-md-6 iq-mb-30">
 
-                     <div class="epi-box">
-                        <div class="epi-img position-relative">
-                           <img src="{{ asset('uploads/teatro/'.$teatro->imgThumb) }}" class="thumb img-zoom">
-                        </div>
-                     </div>
-                     
-                  </div>
-                  <div class="col-1-5 col-md-6 iq-mb-30">
+                  @foreach ($teatro->imagens as $imagem)
+                     <div class="col-1-5 col-md-6 iq-mb-30">
 
-                     <div class="epi-box">
-                        <div class="epi-img position-relative">
-                           <img src="{{ asset('uploads/teatro/'.$teatro->imgThumb) }}" class="thumb img-zoom">
+                        <div class="epi-box">
+                           <div class="epi-img position-relative">
+                              <img src="{{ asset('uploads/teatro/'.$imagem->src) }}" class="thumb img-zoom">
+                           </div>
                         </div>
-                     </div>
-                     
-                  </div>
-                  <div class="col-1-5 col-md-6 iq-mb-30">
 
-                     <div class="epi-box">
-                        <div class="epi-img position-relative">
-                           <img src="{{ asset('uploads/teatro/'.$teatro->imgThumb) }}" class="thumb img-zoom">
-                        </div>
                      </div>
-                     
-                  </div>
-                  <div class="col-1-5 col-md-6 iq-mb-30">
+                  @endforeach
 
-                     <div class="epi-box">
-                        <div class="epi-img position-relative">
-                           <img src="{{ asset('uploads/teatro/'.$teatro->imgThumb) }}" class="thumb img-zoom">
-                        </div>
-                     </div>
-                     
-                  </div>
                </div>
             </div>
          </div>

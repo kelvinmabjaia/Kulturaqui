@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Teatro;
+use App\Models\Imagem;
 
 class TeatroController extends Controller
 {
@@ -26,7 +27,6 @@ class TeatroController extends Controller
             'titulo' => $request->titulo, 
             'kultcateg_id' => $request->categ,
             'dataLanc' => $request->dataLanc,
-            'durac' => $request->durac,
             'idd' => $request->restri,
             'link' => $request->link,
             'link_trailer' => $request->link_alt,
@@ -35,24 +35,47 @@ class TeatroController extends Controller
             'kultestad_id' => 1,
         ]);
 
-        if($request->duracH || $request->duracH > 0){
-            $durac = $request->duracH.'h '.$request->duracM.'m';
-        } else {
-            $durac = $request->duracM.'m';
-        }
+        // Duração
+            if($request->duracH || $request->duracH > 0){
+                $durac = $request->duracH.'h '.$request->duracM.'m';
+            } else {
+                $durac = $request->duracM.'m';
+            }
+            $teatro->durac = $durac;
+        // Duração
 
-        $teatro->durac = $durac;
+        // Imagem Capa
+            if($request->hasfile('thumb')){
+                $file = $request->file('thumb');
+                $exe = $file->getClientOriginalExtension();
+                $filename = time().'.'.$exe;
+                $file->move('uploads/teatro/', $filename);
 
-        if($request->hasfile('thumb')){
-            $file = $request->file('thumb');
-            $exe = $file->getClientOriginalExtension();
-            $filename = time().'.'.$exe;
-            $file->move('uploads/teatro/', $filename);
-
-            $teatro->imgThumb = $filename;
-        }
+                $teatro->imgThumb = $filename;
+            }
+        // Imagem Capa
 
         $teatro->save();
+
+        // Outras Imagens
+            if($request->hasfile('img')){
+                $imagens = $request->img;
+
+                for($i=0; $i<count($imagens); $i++){
+                    $file = $request->file('img')[$i];
+                    $exe = $file->getClientOriginalExtension();
+                    $filename = time().'.'.$exe;
+                    $file->move('uploads/teatro/', $filename);
+
+                    $img = new Imagem();
+                    $img->src = $filename;
+
+                    $teatro->imagens()->save($img);
+                }
+            }
+        // Outras Imagens
+
+        
 
         return redirect( route('teatro.index') )->with('teatro.create', "Peça Teatral acionada com sucesso: " . $request->titulo);
     }
