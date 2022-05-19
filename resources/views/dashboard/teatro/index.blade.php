@@ -56,6 +56,7 @@
                     <th scope="col">Data de Lançamento</th>
                     <th scope="col">Duração</th>
                     <th scope="col">Restrição</th>
+                    <th scope="col">Estado</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -70,13 +71,14 @@
                                     </a>
                                   
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                      <!-- <li><a class="dropdown-item" href="/teatro/{{-- $teatro->id --}}/view"> <i class="bi bi-eye-fill"></i> Consultar</a></li> 
-                                      <li><a class="dropdown-item" href="/teatro/{{-- $teatro->id --}}/edit"> <i class="bi bi-pencil-fill"></i> Editar</a></li>
-        
-                                      <form method="POST" action="/teatro/{{-- $teatro->id --}}/destroy">
-                                        {{--@csrf--}}
-                                        <li><button type="submit" class="dropdown-item"> <i class="bi bi-backspace-fill"></i> Eliminar</button></li>
-                                      </form> -->
+                                      <li><a class="dropdown-item" href="/teatro/{{$teatro->id}}/view"> <i class="bi bi-eye-fill"></i> Consultar</a></li> 
+                                      <li><a class="dropdown-item" href="/teatro/{{$teatro->id}}/edit"> <i class="bi bi-pencil-fill"></i> Editar</a></li>
+                                      <!-- 
+                                        <form method="POST" action="/teatro/{{-- $teatro->id --}}/destroy">
+                                          {{--@csrf--}}
+                                          <li><button type="submit" class="dropdown-item"> <i class="bi bi-backspace-fill"></i> Eliminar</button></li>
+                                        </form> 
+                                      -->
                                     </ul> 
                                 </div>
                             </th>
@@ -88,6 +90,19 @@
                             <td> {{ $teatro->dataLanc }} </td>
                             <td> {{ $teatro->durac }} </td>
                             <td> {{ $teatro->restricao->designac }} </td>
+                            <td>
+                              
+                              @if ($teatro->estado->id == 1)
+                                <span class="badge bg-success">
+                              @elseif ($teatro->estado->id == 2)
+                                <span class="badge bg-warning">
+                              @elseif ($teatro->estado->id == 3)
+                                <span class="badge bg-danger">
+                              @endif
+
+                              {{ $teatro->estado->designac }}</span>
+                              
+                            </td>
                             
                         </tr>
                     @endforeach

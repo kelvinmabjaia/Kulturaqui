@@ -86,17 +86,47 @@ class TeatroController extends Controller
 
     public function show(Teatro $teatro)
     {
-        //
+        return view('dashboard.teatro.view')->with(compact('teatro'));
     }
 
-    public function edit($id)
+    public function edit(Teatro $teatro)
     {
-        //
+        return view('dashboard.teatro.edit')->with(compact('teatro'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Teatro $teatro)
     {
-        //
+        $teatro->update([
+            'titulo' => $request->titulo, 
+            'kultcateg_id' => $request->categ,
+            'dataLanc' => $request->dataLanc,
+            'idd' => $request->restri,
+            'link' => $request->link,
+            'link_trailer' => $request->link_alt,
+            'descrica' => $request->descri,
+        ]);
+
+        // Duração
+            if($request->duracH || $request->duracH > 0){
+                $durac = $request->duracH.'h '.$request->duracM.'m';
+            } else {
+                $durac = $request->duracM.'m';
+            }
+            $teatro->durac = $durac;
+        // Duração
+
+        // Imagem Capa
+            if($request->hasfile('thumb')){
+                $file = $request->file('thumb');
+                $exe = $file->getClientOriginalExtension();
+                $filename = time().'.'.$exe;
+                $file->move('uploads/teatro/', $filename);
+
+                $teatro->imgThumb = $filename;
+            }
+        // Imagem Capa
+        
+        return redirect( route('teatro.index') )->with('teatro.update', "Peça Teatral actualizada com sucesso: " . $request->titulo);
     }
 
     public function destroy($id)

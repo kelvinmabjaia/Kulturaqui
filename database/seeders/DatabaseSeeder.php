@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             RateSeeder::class,
             RestriSeeder::class,
             RoleSeeder::class,
-            UserSeeder::class,
+            //UserSeeder::class,
         ]);
     }
 }

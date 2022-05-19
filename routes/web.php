@@ -19,6 +19,8 @@ Route::post('/user/register', [UserController::class, 'register'])->name('user.r
 
         // List
         Route::get('/teatro', [TeatroController::class, 'index'])->name('teatro.index');
+
+        Route::get('/watch', function () { return view('kult.index'); }); 
         
     });
 //-+ Dashboard
@@ -56,6 +58,9 @@ Route::post('/user/register', [UserController::class, 'register'])->name('user.r
         //Teatro
         Route::get('/teatro/create', [TeatroController::class, 'create'])->name('teatro.create');
         Route::post('/teatro', [TeatroController::class, 'store'])->name('teatro.store');
+        Route::get('/teatro/{teatro}/edit', [TeatroController::class, 'edit']);
+        Route::post('/teatro/{teatro}', [TeatroController::class, 'update']);
+        Route::get('/teatro/{teatro}/view', [TeatroController::class, 'show']);
 
     });
 

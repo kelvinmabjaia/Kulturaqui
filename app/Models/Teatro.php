@@ -26,6 +26,9 @@ class Teatro extends Model
         'imgThumb'
     ];
 
+    public function estado(){
+        return $this->belongsTo(Estado::class, 'kultestad_id');
+    }
     
     public function categoria(){
         return $this->belongsTo(Categoria::class, 'kultcateg_id', 'id');
