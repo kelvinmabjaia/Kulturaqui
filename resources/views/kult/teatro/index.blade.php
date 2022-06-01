@@ -2,9 +2,10 @@
 
    <!-- Banner Start -->
    <div class="video-container iq-main-slider">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/rCdhdAdd5P0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" height="315" src={{ $teatro->link }} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    </div>
-   <!-- Banner End -->
+   
+   <!-- Banner End https://www.youtube.com/embed/rCdhdAdd5P0 -->
    <!-- MainContent -->
    <div class="main-content">
       <section class="movie-detail container-fluid">
@@ -59,7 +60,7 @@
 
                      <div class="epi-box">
                         <div class="epi-img position-relative">
-                           <img src="{{ asset('uploads/teatro/'.$teatro->imgThumb) }}" class="thumb img-zoom">
+                           <img src="{{ asset('uploads/capa/'.$teatro->imgThumb) }}" class="thumb img-zoom">
                         </div>
                      </div>
 

@@ -26,6 +26,7 @@ class TeatroController extends Controller
             'user_id' => \Auth::user()->id,
             'titulo' => $request->titulo, 
             'kultcateg_id' => $request->categ,
+            'kultipo_id' => $request->tipo,
             'dataLanc' => $request->dataLanc,
             'idd' => $request->restri,
             'link' => $request->link,
@@ -49,7 +50,7 @@ class TeatroController extends Controller
                 $file = $request->file('thumb');
                 $exe = $file->getClientOriginalExtension();
                 $filename = time().'.'.$exe;
-                $file->move('uploads/teatro/', $filename);
+                $file->move('uploads/capa/', $filename);
 
                 $teatro->imgThumb = $filename;
             }

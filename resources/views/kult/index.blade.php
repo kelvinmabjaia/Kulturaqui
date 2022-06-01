@@ -21,7 +21,7 @@
                <div class="iq-main-header d-flex align-items-center justify-content-between">
                   
                   <div class="widget-container">
-                     <p class="heading-title size-default">TEATRO</p>		
+                     <p class="heading-title size-default">FILME</p>		
                   </div>
 
 
@@ -29,11 +29,11 @@
                <div class="favorites-contens">
                   <ul class="favorites-slider list-inline  row p-0 mb-0 iq-rtl-direction">
 
-                     @foreach (App\Models\Teatro::all() as $teatro)
+                     @foreach (App\Models\Teatro::with('tipo')->whereHas('tipo', function($query){ $query->where('designac', 'Filme'); })->get() as $teatro)
                         <li class="slide-item">
                            <div class="block-images position-relative">
                               <div class="img-box">
-                                 <img class="thumb" src="{{ asset('uploads/teatro/'.$teatro->imgThumb) }}"/>
+                                 <img class="thumb" src="{{ asset('uploads/capa/'.$teatro->imgThumb) }}"/>
                               </div>
                               <div class="block-description">
                                  <h4 class="iq-title"><a href="show-details.html">{{ $teatro->titulo }}</a></h4>
@@ -73,32 +73,46 @@
             <div class="iq-main-header d-flex align-items-center justify-content-between">
                
                <div class="widget-container">
-                  <p class="heading-title size-default">FILME</p>		
+                  <p class="heading-title size-default">TEATRO</p>		
                </div>
 
 
             </div>
             <div class="favorites-contens">
                <ul class="favorites-slider list-inline  row p-0 mb-0 iq-rtl-direction">
-                  <li class="slide-item">
-                        <div class="block-images position-relative">
-                           <div class="img-box">
-                              <img src="{{ asset('assets/frontend/images/upcoming/01.jpg') }}" class="img-fluid" alt="">
-                           </div>
-                           <div class="block-description">
-                              <h6 class="iq-title"><a href="show-details.html">The Last Breath</a></h6>
-                              <div class="movie-time d-flex align-items-center my-2">
-                                 <div class="badge badge-secondary p-1 mr-2">5+</div>
-                                 <span class="text-white">2h 30m</span>
+                  
+                  @foreach (App\Models\Teatro::with('tipo')->whereHas('tipo', function($query){ $query->where('designac', 'Teatro'); })->get() as $teatro)
+                        <li class="slide-item">
+                           <div class="block-images position-relative">
+                              <div class="img-box">
+                                 <img class="thumb" src="{{ asset('uploads/capa/'.$teatro->imgThumb) }}"/>
                               </div>
-                              <div class="hover-buttons">
-                                 <a href="show-details.html" role="button" class="btn btn-hover"><i class="fa fa-play mr-1" aria-hidden="true"></i>
-                                    Play Now
-                                 </a>
+                              <div class="block-description">
+                                 <h4 class="iq-title"><a href="show-details.html">{{ $teatro->titulo }}</a></h4>
+                                 <div class="movie-time d-flex align-items-center my-2">
+                                    
+                                       @if ( $teatro->restricao->sigla == "R")
+                                       <div  class="badge badge-danger p-1 mr-2">
+                                       @else
+                                       <div  class="badge badge-info p-1 mr-2">
+                                       @endif
+                                       {{ $teatro->restricao->sigla }}
+                                    </div>
+                                    <span class="text-white">{{ $teatro->durac }}</span>
+                                 </div>
+                                 <div class="hover-buttons mb-1">
+                                    <a href="/watch/{{ $teatro->id }}" role="button" class="btn btn-hover"><i class="fa fa-play mr-1" aria-hidden="true"></i>
+                                       Assistir
+                                    </a>
+                                 </div>
+                                    <a href="url(www.google.com)" role="button" class="text-danger text-sm" aria-hidden="true">
+                                       Ver Trailer
+                                    </a>
                               </div>
                            </div>
-                        </div>
-                  </li>
+                        </li>
+                     @endforeach
+
                </ul>
             </div>
          </div>

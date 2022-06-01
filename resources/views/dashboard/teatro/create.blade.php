@@ -36,13 +36,26 @@
                         <div class="row mb-3">
 
                             {{-- Título --}}
-                            <div class="col-7">
+                            <div class="col-6">
                                 <label class="form-label">Título</label>
                                 <input type="text" class="form-control" name="titulo">
                             </div>
+
+                            {{-- Tipo --}}
+                            <div class="col-3">
+                                <label class="form-label">Tipo</label>
+                                <select class="form-select" name="tipo">
+                                    <option selected disabled>Escolha...</option>
+    
+                                    @foreach (App\Models\Tipo::all() as $tipo)
+                                        <option value={{ $tipo->id }}>{{ $tipo->designac }}</option>
+                                    @endforeach
+                                    
+                                </select>
+                            </div>
     
                             {{-- Categoria --}}
-                            <div class="col-5">
+                            <div class="col-3">
                                 <label class="form-label">Categoria</label>
                                 <select class="form-select" name="categ">
                                     <option selected disabled>Escolha...</option>
@@ -96,7 +109,7 @@
                             {{-- Link Teatro --}}
                             <div class="col-6">
                                 <label class="form-label">Link da Peça</label>
-                                <input type="text" class="form-control" name="link">
+                                <input type="text" class="form-control" name="link" value="https://www.youtube.com/embed/">
                             </div>
 
                             {{-- Link Teatro --}}

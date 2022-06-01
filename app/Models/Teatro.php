@@ -17,6 +17,7 @@ class Teatro extends Model
         'link',
         'link_trailer',
         'kultcateg_id',
+        'kultipo_id',
         'descrica',
         'idd',
         'dataLanc',
@@ -25,6 +26,10 @@ class Teatro extends Model
         'kultestad_id',
         'imgThumb'
     ];
+
+    public function tipo(){
+        return $this->belongsTo(Tipo::class, 'kultipo_id');
+    }
 
     public function estado(){
         return $this->belongsTo(Estado::class, 'kultestad_id');

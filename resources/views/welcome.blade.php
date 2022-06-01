@@ -62,23 +62,23 @@
                                     <th class="text-center iq-price-head basic">
                                        <div class="iq-price-box">
                                           <h3 class="iq-price-rate text-white">300MT<small> / Mês</small></h3>
-                                          <span class="type text-white bg-success">Básico</span>
+                                          <span class="type text-white bg-success">Pessoal</span>
                                        </div>
                                     </th>
 
                                     {{-- Familiar --}}
                                     <th class="text-center iq-price-head">
                                        <div class="iq-price-box">
-                                          <h3 class="iq-price-rate text-white">900MT<small> / Mês</small></h3>
-                                          <span class="type text-white bg-primary">Familiar</span>
+                                          <h3 class="iq-price-rate text-white">700MT<small> / Mês</small></h3>
+                                          <span class="type text-black bg-warning">Amigos</span>
                                        </div>
                                     </th>
 
                                     {{-- Familiar x3 --}}
                                     <th class="text-center iq-price-head premium">
                                        <div class="iq-price-box bg-primary">
-                                          <h3 class="iq-price-rate text-light">2500MT<small> / 3 Meses</small></h3>
-                                          <span class="type bg-white text-primary">Familiar x3</span>
+                                          <h3 class="iq-price-rate text-light">1200MT<small> / Mês</small></h3>
+                                          <span class="type bg-white text-primary">Familiar</span>
                                        </div>
                                     </th>
                                     
@@ -91,11 +91,23 @@
                                  <td class="text-center iq-child-cell text-success">
                                     <i class="fa fa-times-circle text-muted"></i>
                                  </td>
-                                 <td class="text-center iq-child-cell active">
-                                    <i class="fa fa-check-circle text-light"></i>
+                                 <td class="text-center iq-child-cell text-success">
+                                    <i class="fa fa-times-circle text-muted"></i>
                                  </td>
                                  <td class="text-center iq-child-cell">
                                     <i class="fa fa-check-circle text-light"></i>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <th class="text-center" scope="row"> Contas Associadas</th>
+                                 <td class="text-center iq-child-cell text-success">
+                                    <h5>1</h5>
+                                 </td>
+                                 <td class="text-center iq-child-cell active">
+                                    <h5>3</h5>
+                                 </td>
+                                 <td class="text-center iq-child-cell">
+                                    <h5>5</h5>
                                  </td>
                               </tr>
                               <tr>
@@ -131,7 +143,7 @@
                                  </td>
                                  <td class="text-center iq-price-footer active">
                                     <div class="align-items-center r-mb-23" data-animation-in="fadeInUp" data-delay-in="1.3">
-                                       <a href="{{ route('login') }}" class="btn btn-danger">Assinar</a>
+                                       <a href="{{ route('login') }}" class="btn btn-warning">Assinar</a>
                                     </div>
                                  </td>
                                  <td class="text-center iq-price-footer">

@@ -83,7 +83,7 @@
                                 </div>
                             </th>
                             <td> 
-                              <img src="{{ asset('uploads/teatro/'.$teatro->imgThumb) }}" style="object-fit: cover;" width="60px" height="60px"/>
+                              <img src="{{ asset('uploads/capa/'.$teatro->imgThumb) }}" style="object-fit: cover;" width="60px" height="60px"/>
                             </td>
                             <td> {{ $teatro->titulo }} </td>
                             <td> {{ $teatro->categoria->designac }} </td>

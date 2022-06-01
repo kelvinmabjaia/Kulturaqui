@@ -188,7 +188,7 @@
                                     </div>
                                 </th>
                                 <td> 
-                                  <img src="{{ asset('uploads/teatro/'.$teatro->imgThumb) }}" style="object-fit: cover;" width="60px" height="60px"/>
+                                  <img src="{{ asset('uploads/capa/'.$teatro->imgThumb) }}" style="object-fit: cover;" width="60px" height="60px"/>
                                 </td>
                                 <td> {{ $teatro->titulo }} </td>
                                 <td> {{ $teatro->categoria->designac }} </td>
@@ -285,15 +285,15 @@
                         },
                         data: [{
                             value: 1048,
-                            name: 'Pacote Básico'
+                            name: 'Pacote Pessoal'
                           },
                           {
                             value: 735,
-                            name: 'Pacote Familiar'
+                            name: 'Pacote Amigo'
                           },
                           {
-                            value: 580,
-                            name: 'Pacote Familiar (x3)'
+                            value: 200,
+                            name: 'Pacote Familia'
                           },
                         ]
                       }]
